@@ -13,8 +13,6 @@ export class NavVPK {
         document.getElementById("nav-delete").disabled = !value;
 
         localStorage.setItem("dlmodding:nav:vpk:files", JSON.stringify(value));
-
-        this.date = new Date();
         localStorage.setItem("dlmodding:nav:vpk:date", this.date.getTime());
     }
 
@@ -49,18 +47,12 @@ export class NavVPK {
         const bytes = await file.bytes();
         if (file.name === 'pak01_dir.vpk') {
             // Load directory
+            this.date = new Date();
             this.files = await runExportSafelySlow("ListFilePaths", bytes);
-        } else if (file.name.startsWith("pak01_")) {
-            if (!this.files) {
-                alert("You need to select the pak01_dir.vpk file from the Deadlock installation folder.");
-                return;
-            }
-
-            // TODO Load archive file
         } else if (file.name.startsWith("pak")) {
             alert("Unexpected pak file. You need to select the pak01_dir.vpk file from the Deadlock installation folder.");
         } else {
-            alert("Unexpected file. You need to select the pak01_dir.vpk file from the Deadlock installation folder.");
+            alert("Unexpected file selected. You need to select the pak01_dir.vpk file from the Deadlock installation folder.");
         }
     }
 
