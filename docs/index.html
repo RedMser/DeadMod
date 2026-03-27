@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>DeadMod</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="_framework/dotnet.qaiooeduab.js" rel="preload" as="script" fetchpriority="high" crossorigin="anonymous" integrity="sha256-Xi2935e7L5PUrC0YIe9913oopLGSPP6nB+el0fDP3GI=" />
+  <script type="importmap">{
+  "imports": {
+    "./_framework/dotnet.native.js": "./_framework/dotnet.native.69poregybn.js",
+    "./_framework/dotnet.js": "./_framework/dotnet.qaiooeduab.js",
+    "./_framework/dotnet.runtime.js": "./_framework/dotnet.runtime.q5rqv3xrhm.js",
+    "./file-select.js": "./file-select.ktmk832adl.js",
+    "./loading.js": "./loading.8azlgt6vus.js",
+    "./main.js": "./main.vx27ad2tdw.js",
+    "./mod.js": "./mod.agkymdgiso.js",
+    "./nav-vpk.js": "./nav-vpk.yrus1qdi6q.js",
+    "./nav.js": "./nav.y2qbmel82m.js",
+    "./treeview/treeview.js": "./treeview/treeview.n1vo1dxfdp.js",
+    "./utils.js": "./utils.8wzs2xt6k1.js"
+  },
+  "scopes": {},
+  "integrity": {
+    "./_framework/dotnet.js": "sha256-Xi2935e7L5PUrC0YIe9913oopLGSPP6nB+el0fDP3GI=",
+    "./_framework/dotnet.native.69poregybn.js": "sha256-JvdIvkSF0x6euoPT2QnQSMg2Gyv2oJbFeBi1XmWLYFU=",
+    "./_framework/dotnet.native.js": "sha256-JvdIvkSF0x6euoPT2QnQSMg2Gyv2oJbFeBi1XmWLYFU=",
+    "./_framework/dotnet.qaiooeduab.js": "sha256-Xi2935e7L5PUrC0YIe9913oopLGSPP6nB+el0fDP3GI=",
+    "./_framework/dotnet.runtime.js": "sha256-ArknccFM1sHNVcih0x1h52AG+abNCoQjl6BlVrv3ePw=",
+    "./_framework/dotnet.runtime.q5rqv3xrhm.js": "sha256-ArknccFM1sHNVcih0x1h52AG+abNCoQjl6BlVrv3ePw=",
+    "./file-select.js": "sha256-iESJtXdugcNb2sO2h2PZ8Ua5+HF8lqJuM5L0RhPcL7o=",
+    "./file-select.ktmk832adl.js": "sha256-iESJtXdugcNb2sO2h2PZ8Ua5+HF8lqJuM5L0RhPcL7o=",
+    "./loading.8azlgt6vus.js": "sha256-IJbPlVAvSfzFwpKv2N42pgjYVi7isIy2o7+UCYEtbUo=",
+    "./loading.js": "sha256-IJbPlVAvSfzFwpKv2N42pgjYVi7isIy2o7+UCYEtbUo=",
+    "./main.js": "sha256-owjIRSgWe+dmw6vU0KdF7wES6SLaO7mVCmrzuMYk0PU=",
+    "./main.vx27ad2tdw.js": "sha256-owjIRSgWe+dmw6vU0KdF7wES6SLaO7mVCmrzuMYk0PU=",
+    "./mod.agkymdgiso.js": "sha256-9rmbm0ko1hCqEYoaSkV29t0dSn5I4aAnlMxapTguRKA=",
+    "./mod.js": "sha256-9rmbm0ko1hCqEYoaSkV29t0dSn5I4aAnlMxapTguRKA=",
+    "./nav-vpk.js": "sha256-MtwaTzfRpX7DQvdH5D2U9mnPNfVA274Ac8jyyoQslGI=",
+    "./nav-vpk.yrus1qdi6q.js": "sha256-MtwaTzfRpX7DQvdH5D2U9mnPNfVA274Ac8jyyoQslGI=",
+    "./nav.js": "sha256-ynb5DiVEqu8+6USg8/I6wHTBouNYE9aX2Q/jcKjy+30=",
+    "./nav.y2qbmel82m.js": "sha256-ynb5DiVEqu8+6USg8/I6wHTBouNYE9aX2Q/jcKjy+30=",
+    "./treeview/treeview.js": "sha256-1YfikfXqB2OlAArxJNzcBxnOvMLOTh5eZPaFEe+2eCI=",
+    "./treeview/treeview.n1vo1dxfdp.js": "sha256-1YfikfXqB2OlAArxJNzcBxnOvMLOTh5eZPaFEe+2eCI=",
+    "./utils.8wzs2xt6k1.js": "sha256-uFoJoXRBdBArIf6kfzA3znMkWhZvHR2lrEO83TpbE8I=",
+    "./utils.js": "sha256-uFoJoXRBdBArIf6kfzA3znMkWhZvHR2lrEO83TpbE8I="
+  }
+}</script>
+  <script src="treeview/treeview.n1vo1dxfdp.js"></script>
+  <script type='module' src="main.vx27ad2tdw.js"></script>
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="treeview/treeview.css">
+</head>
+
+<body>
+  <nav>
+    <div class="header">
+      <p id="nav-explanation">
+        <h2>Game file browser</h2>
+        <p id="nav-explanation-no-file">
+          Upload the <code>pak01_dir.vpk</code> file found in your Deadlock installation folder to show a list of file names.
+        </p>
+        <p id="nav-explanation-file" class="hide">
+          <code>pak01_dir.vpk</code> uploaded <span class="date"></span>.
+        </p>
+      </p>
+  
+      <div class="buttons">
+        <button class="text-btn text-btn--small" id="nav-upload" title="Upload pak01_dir.vpk to browse game files.">Upload VPK</button>
+        <button class="text-btn text-btn--small" id="nav-delete" disabled title="Delete uploaded pak01_dir.vpk file.">Delete</button>
+      </div>
+    </div>
+
+    <div id="nav-tree" class="hide"></div>
+  </nav>
+
+  <main>
+    <section style="flex: 1;">
+      <h1>Your Mod &ndash; <span id="mod-row-count">0 files</span></h1>
+      <table id="mod-table">
+        <thead>
+          <tr>
+            <th style="width: 60%;">File path</th>
+            <th>Upload file</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="3">
+              <button class="text-btn" id="mod-add-row" title="Add another asset to mod.">+ Add asset</button>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+
+      <hr>
+
+      <label>
+        Mod file name:
+        <input id="mod-name" value="pak50_dir.vpk" title="The name of your newly created mod VPK. Usually 'pakXX_dir.vpk' where XX is a number between 01 and 99.">
+      </label>
+      <br>
+      <div>
+        <button class="text-btn text-btn--large" id="mod-save" title="Create a VPK of your mod.">Save Mod as VPK</button>
+      </div>
+    </section>
+
+    <section>
+      <h1>About DeadMod</h1>
+      <h2>Create simple asset replacement mods directly in your browser.</h2>
+      <p>Currently only supports <em>texture mods</em>. Support for sound mods might come later.</p>
+    </section>
+  
+    <section>
+      <h2>How to use?</h2>
+      <ol>
+        <li>Download <a href="https://s2v.app/dev/">Source2Viewer</a> to find and decompile game files (<code>pak01_dir.vpk</code>).</li>
+        <li>Edit the extracted files to your heart's content (e.g. a texture replacement mod for a hero).</li>
+        <li>Select and upload your edited files here. To fill "file path", you can do either:
+          <ul>
+            <li>Right-click a file in Source2Viewer and select "Copy name", then click "+ Add asset" at the top and paste into the file path field.</li>
+            <li>Upload Deadlock's <code>pak01_dir.vpk</code> on the left section, then you can search for game files and click to add them.</li>
+          </ul>
+        </li>
+        <li>Once you're done, download your mod as a VPK and <a href="https://deadlocker.net/install-guide#manually">install it like any other mod</a>.</li>
+      </ol>
+    </section>
+
+    <section>
+      <p class="dim">
+        This is a fan-made website and is not affiliated with, endorsed by, or created by Valve Corporation or the developers of Deadlock.
+        All trademarks, logos, and game content belong to their respective owners.
+        quercus.js licensed under MIT. Colus Regular font licensed free for personal use. ValvePak licensed under MIT.
+        DeadMod website by RedMser.
+      </p>
+    </section>
+  </main>
+
+  <div id="loading-screen">
+    <div class="spinner"></div>
+    <div class="text">
+      <p>Loading...</p>
+      <p class="slow hide">This may take a moment...</p>
+    </div>
+  </div>
+</body>
+
+</html>
