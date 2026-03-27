@@ -20,7 +20,7 @@ export function dateToRelative(date) {
     const diffMs = now - d;
 
     const seconds = Math.floor(diffMs / 1000);
-    if (seconds < 60) return "under a minute ago";
+    if (seconds < 60) return "just now";
 
     const minutes = Math.floor(seconds / 60);
     if (minutes < 60) {
