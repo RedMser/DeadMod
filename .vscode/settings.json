@@ -1,3 +1,7 @@
 {
-    "js/ts.preferences.importModuleSpecifierEnding": "js"
+    "js/ts.preferences.importModuleSpecifierEnding": "js",
+    "files.exclude": {
+        "**/*.br": true,
+        "**/*.gz": true,
+    }
 }
