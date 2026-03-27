@@ -2,13 +2,11 @@
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <OverrideHtmlAssetPlaceholders>true</OverrideHtmlAssetPlaceholders>
+    <OverrideHtmlAssetPlaceholders>false</OverrideHtmlAssetPlaceholders>
     <InvariantGlobalization>true</InvariantGlobalization>
+    <StaticWebAssetFingerprintingEnabled>false</StaticWebAssetFingerprintingEnabled>
+    <DisableBuildCompression>true</DisableBuildCompression>
   </PropertyGroup>
-
-  <ItemGroup>
-    <StaticWebAssetFingerprintPattern Include="JS" Pattern="*.js" Expression="#[.{fingerprint}]!" />
-  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="D:\Sources\ValvePak\ValvePak\ValvePak\ValvePak.csproj" />
