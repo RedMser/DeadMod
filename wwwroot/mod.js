@@ -67,7 +67,7 @@ export class Mod {
         const uploadFile = document.createElement('input');
         uploadFile.className = 'uploadfile';
         uploadFile.type = 'file';
-        uploadFile.accept = 'image/*';
+        uploadFile.accept = 'image/png';
         td.appendChild(uploadFile);
         row.appendChild(td);
 
