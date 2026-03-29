@@ -19,37 +19,24 @@ export async function selectFile(accept = "") {
 }
 
 export async function fileToImageData(file) {
+    // This only supports png as input. Canvas drawImage loses RGB data on alpha=0 due to
+    // premultiplied alpha.
     return new Promise((resolve, reject) => {
         // Load image
         const img = new Image();
         const url = URL.createObjectURL(file);
 
-        img.onload = () => {
+        img.onload = async () => {
             URL.revokeObjectURL(url);
+            
+            const arrayBuffer = await file.arrayBuffer();
+            const pngBytes = new Uint8Array(arrayBuffer);
 
-            // Draw to canvas
-            const canvas = document.createElement("canvas");
-            canvas.width = img.width;
-            canvas.height = img.height;
-
-            const ctx = canvas.getContext("2d");
-            ctx.drawImage(img, 0, 0);
-
-            // Encode canvas as PNG blob
-            canvas.toBlob(async (blob) => {
-                try {
-                    const arrayBuffer = await blob.arrayBuffer();
-                    const pngBytes = new Uint8Array(arrayBuffer);
-
-                    resolve({
-                        width: canvas.width,
-                        height: canvas.height,
-                        png: pngBytes // full PNG byte stream (with headers)
-                    });
-                } catch (err) {
-                    reject(err);
-                }
-            }, "image/png");
+            resolve({
+                width: img.width,
+                height: img.height,
+                png: pngBytes,
+            });
         };
 
         img.onerror = reject;
